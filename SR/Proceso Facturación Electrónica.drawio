@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.10">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 OPR/117.0.0.0" version="26.0.14">
   <diagram name="Página-1" id="SqxrHdy-vmil8ouuskka">
-    <mxGraphModel dx="880" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="878" dy="435" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -36,7 +36,7 @@
         <mxCell id="6jQ01gzNGri82Y6rZKs0-13" value="Paso 3 Cargar documentos en FeEstadoDocumentos&lt;br&gt;&lt;b&gt;[dbo].[FeCargarDatosDocumentosElectronicosSp]&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="240" y="940" width="480" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ZCtSPSgbI4ZUuqptyquI-1" value="Proceso de Batch&lt;br&gt;...&lt;br&gt;Se ejecuta cada 5 minutos" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+        <mxCell id="ZCtSPSgbI4ZUuqptyquI-1" value="Proceso de Batch&lt;br&gt;Se ejecuta cada 5 minutos" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="70" y="39" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ZCtSPSgbI4ZUuqptyquI-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZCtSPSgbI4ZUuqptyquI-4" target="ZCtSPSgbI4ZUuqptyquI-5" edge="1">
