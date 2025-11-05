@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 OPR/122.0.0.0" version="28.2.9">
+  <diagram id="keycloak-flow" name="Flujo Autenticación NIT + OTP">
+    <mxGraphModel dx="870" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Flutter App (Cliente)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Keycloak (Servidor de Identidad)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="180" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="API Interna (Maestra Clientes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="640" y="180" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="API CWPAY (Backend)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="2. Valida NIT contra maestra interna" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="273" as="sourcePoint" />
+            <mxPoint x="630" y="273" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="3. Devuelve datos del cliente (teléfono, correo)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="311" as="sourcePoint" />
+            <mxPoint x="580" y="311" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="4. Solicita ingreso del OTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="342" as="sourcePoint" />
+            <mxPoint x="260" y="342" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="5. Envía OTP al medio registrado" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="364" as="sourcePoint" />
+            <mxPoint x="630" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="6. Envía OTP recibido" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="380" as="sourcePoint" />
+            <mxPoint x="320" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="7. Valida OTP (Custom Authenticator)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry x="0.1818" relative="1" as="geometry">
+            <mxPoint x="581" y="415" as="targetPoint" />
+            <mxPoint x="581" y="395" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" value="8. Devuelve Access Token (JWT)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="431" as="sourcePoint" />
+            <mxPoint x="260" y="431" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="9. Llama /pay/... con Bearer &lt;token&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="464" as="sourcePoint" />
+            <mxPoint x="950" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="10. Valida token vía JWKS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="951" y="504" as="sourcePoint" />
+            <mxPoint x="581" y="504" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="11. Token válido" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="545" as="sourcePoint" />
+            <mxPoint x="950" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="12. Respuesta autorizada" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#000000;endArrow=block;html=1;fontSize=12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="577" as="sourcePoint" />
+            <mxPoint x="260" y="577" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acDG0rX8JQrtZRaUzsc8-22" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="602" as="sourcePoint" />
+            <mxPoint x="120" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acDG0rX8JQrtZRaUzsc8-23" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="439.5" y="602" as="sourcePoint" />
+            <mxPoint x="439.5" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acDG0rX8JQrtZRaUzsc8-24" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="280" as="sourcePoint" />
+            <mxPoint x="440" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acDG0rX8JQrtZRaUzsc8-25" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="acDG0rX8JQrtZRaUzsc8-24">
+          <mxGeometry x="0.0125" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acDG0rX8JQrtZRaUzsc8-26" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;1. Solicita Login (con NIT)&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="acDG0rX8JQrtZRaUzsc8-24">
+          <mxGeometry x="0.0188" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
