@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 OPR/122.0.0.0" version="28.2.9">
+  <diagram name="B2B Database Model" id="0">
+    <mxGraphModel dx="870" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="users" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="roles" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="295" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="suppliers" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="525" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="currencies" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="780" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="products" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1060" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="discounts" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1465" width="220" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="user_suppliers" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1795" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="order_headers" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="2050" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="order_details" style="swimlane;fontStyle=1;childLayout=stackLayout;rounded=1;horizontal=1;resizeLast=0;collapsible=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="2355" width="220" height="220" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
