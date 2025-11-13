@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 OPR/122.0.0.0" version="28.2.9">
+  <diagram name="ERD" id="0">
+    <mxGraphModel dx="870" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="table_0" value="" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="78" width="240" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="table_1" value="&lt;b&gt;roles&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;name varchar(50)&lt;br&gt;description varchar(150)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="100" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="table_2" value="&lt;b&gt;providers&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;name varchar(100)&lt;br&gt;logo_url varchar(255)&lt;br&gt;status bool&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="100" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="table_3" value="&lt;b&gt;clients&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;erp_code varchar(20) UNIQUE&lt;br&gt;name varchar(150)&lt;br&gt;provider_id bigint FK providers.id&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="500" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="table_4" value="&lt;b&gt;branches&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;client_id bigint FK clients.id&lt;br&gt;name varchar(150)&lt;br&gt;address varchar(255)&lt;br&gt;city varchar(100)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="500" width="240" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="table_5" value="&lt;b&gt;currencies&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;code varchar(5)&lt;br&gt;description varchar(50)&lt;br&gt;symbol varchar(5)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="500" width="240" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="table_6" value="&lt;b&gt;products&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;product_code varchar(20) UNIQUE&lt;br&gt;name varchar(150)&lt;br&gt;price numeric(12,2)&lt;br&gt;manufacturer varchar(100)&lt;br&gt;client_code varchar(20)&lt;br&gt;vat numeric(5,2)&lt;br&gt;icui numeric(5,2)&lt;br&gt;ibua numeric(5,2)&lt;br&gt;currency_id bigint FK currencies.id&lt;br&gt;provider_id bigint FK providers.id&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="900" width="240" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="table_7" value="&lt;b&gt;discounts&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;product_id bigint FK products.id&lt;br&gt;client_id bigint FK clients.id&lt;br&gt;provider_id bigint FK providers.id&lt;br&gt;discount_value numeric(12,2)&lt;br&gt;discount_type varchar(20)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="900" width="240" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="table_8" value="&lt;b&gt;orders&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;client_id bigint FK clients.id&lt;br&gt;order_date timestamp&lt;br&gt;total_amount numeric(14,2)&lt;br&gt;status varchar(20)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp&lt;br&gt;external_id uuid UNIQUE" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="900" width="240" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="table_9" value="&lt;b&gt;order_details&lt;/b&gt;&lt;br&gt;id bigint PK&lt;br&gt;order_id bigint FK orders.id&lt;br&gt;product_id bigint FK products.id&lt;br&gt;quantity int&lt;br&gt;unit_price numeric(12,2)&lt;br&gt;subtotal numeric(14,2)&lt;br&gt;discount_applied numeric(12,2)&lt;br&gt;is_active bool&lt;br&gt;created_at timestamp&lt;br&gt;updated_at timestamp" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1300" width="240" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1000" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_1" target="table_0" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1001" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_2" target="table_3" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="270" />
+              <mxPoint x="220" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_1002" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_3" target="table_4" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1003" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_5" target="table_6" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1004" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_2" target="table_6" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="360" />
+              <mxPoint x="220" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_1005" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_6" target="table_7" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1006" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_3" target="table_7" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1007" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_2" target="table_7" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1008" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_8" target="table_9" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1009" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_6" target="table_9" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1010" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;" parent="1" source="table_3" target="table_8" vertex="1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Pku03rY4PA-6_bhWskXg-1" value="&lt;b&gt;users&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;id bigint PK&lt;/span&gt;&lt;/div&gt;&lt;/b&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;code varchar(50) UNIQUE&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;username varchar(50) UNIQUE&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;role_id bigint FK roles.id&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;is_active bool&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;created_at timestamp&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;updated_at timestamp&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="141" width="260" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
